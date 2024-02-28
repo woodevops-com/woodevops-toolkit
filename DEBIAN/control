@@ -1,0 +1,9 @@
+Package: ubuntu-nginx-php-mariadb-wp-cli
+Version: 1.0
+Section: web
+Priority: optional
+Architecture: all
+Depends: nginx, mariadb-server, php8.1-fpm, php8.1-mysql, php8.1-gd, php8.1-curl, php8.1-xml, php8.1-mbstring, php8.1-imagick, php8.1-intl, php8.1-xmlrpc, php8.1-zip, php8.1-common, unzip, curl, wp-cli
+Description: My custom package with dependencies
+ This package is a meta-package that installs PHP, Nginx and MariaDB.
+Maintainer: Lívia Orsós <livia.orsos@codehsarp.hu>
