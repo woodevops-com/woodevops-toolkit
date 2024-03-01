@@ -20,6 +20,7 @@
     "date.timezone": "Not defined",
     "max_file_uploads": 20,
     "upload_tmp_dir": "Not defined",
-    "session.gc_maxlifetime": 1440
+    "session.gc_maxlifetime": 1440,
+    "new_important_php_setting": 3
   }
 }

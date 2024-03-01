@@ -14,6 +14,10 @@ if ($php_ini) {
         $php_ini = str_replace($setting, ';'.$setting, $php_ini);
         continue;
       }
+      if (strpos($php_ini, $setting) === false) {
+        $php_ini .= $setting.' = '.$value."\n";
+        continue;
+      }
       $php_ini = preg_replace('/;?'.$setting.'\s*=.*+\n/', $setting.' = '.$value."\n", $php_ini);      
     }
         
