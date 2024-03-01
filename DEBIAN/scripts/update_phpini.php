@@ -1,17 +1,8 @@
 <?php
-$important_settings = array(
-  'memory_limit' => -1,
-  'max_execution_time' => 30,
-  'upload_max_filesize' => '2M',
-  'post_max_size' => '8M',
-  'error_reporting' => 22527,
-  'date.timezone' => 'Not defined',
-  'max_file_uploads' => 20,
-  'upload_tmp_dir' => 'Not defined',
-  'session.gc_maxlifetime' => 1440,
-);
+$config = json_decode(file_get_contents('../config.json'), true);
+$important_settings = $config['php'];
 
-$php_ini_path = '../etc/php/8.1/fpm/php.ini';
+$php_ini_path = '../../../etc/php/8.1/fpm/php.ini';
 $php_ini = file_get_contents($php_ini_path);
 
 if ($php_ini) {

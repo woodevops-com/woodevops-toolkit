@@ -3,7 +3,6 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND noninteractive
 
 COPY DEBIAN package/DEBIAN
-COPY scripts scripts
 
 RUN apt-get update && \
     apt-get install -y \
