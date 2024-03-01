@@ -1,8 +1,8 @@
 <?php
-$config = json_decode(file_get_contents('../config.json'), true);
+$config = json_decode(file_get_contents('/scripts/config.json'), true);
 $important_settings = $config['php'];
 
-$php_ini_path = '../../../etc/php/8.1/fpm/php.ini';
+$php_ini_path = '/etc/php/8.1/fpm/php.ini';
 $php_ini = file_get_contents($php_ini_path);
 
 if ($php_ini) {

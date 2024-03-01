@@ -1,9 +1,9 @@
 <?php
-$config = json_decode(file_get_contents('../config.json'), true);
+$config = json_decode(file_get_contents('/scripts/config.json'), true);
 $pages = $config['pages'];
 
 foreach ($pages as $page) {
-  $filename = '../../../etc/nginx/sites-available/'.$page['filename'];
+  $filename = '/etc/nginx/sites-available/'.$page['filename'];
   $content = 'server {
     listen 80;
     listen [::]:80;

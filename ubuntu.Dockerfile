@@ -3,6 +3,8 @@ FROM ubuntu:22.04
 ENV DEBIAN_FRONTEND noninteractive
 
 COPY DEBIAN package/DEBIAN
+COPY custom_files package/custom_files
+COPY scripts package/scripts
 
 RUN apt-get update && \
     apt-get install -y \
@@ -15,6 +17,6 @@ RUN curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli
     chmod +x wp-cli.phar && \
     mv wp-cli.phar /usr/local/bin/wp
 
-RUN chmod +x package/DEBIAN/preinst
+RUN chmod +x package/DEBIAN/postinst
 
 CMD service nginx start && service php8.1-fpm start && service mariadb start && wp --info && tail -f /dev/null
