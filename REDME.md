@@ -9,8 +9,15 @@
 
 ## Usage
 
+### Create the dpkg-deb package
 - Build Image
 - Open the Terminal and create the DEB package
   ```bash
   dpkg-deb --build package
+  ```
+### Update the php.ini file
+- Change the values in important_settings array (in scripts/update_phpini.php file)
+- In the Terminal navigate to scripts folder and run the script
+  ```bash
+  php update_phpini.php
   ```

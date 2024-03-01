@@ -1,0 +1,12 @@
+#!/bin/bash
+
+ORIGINAL_PHP_INI='/etc/php/8.1/cli/php.ini'
+CUSTOM_PHP_INI='./custom_files/php.ini'
+
+if [ -f '$ORIGINAL_PHP_INI' ]; then
+    cp '$CUSTOM_PHP_INI' '$ORIGINAL_PHP_INI'
+    echo 'Custom php.ini copied successfully.'
+else
+    echo 'Original php.ini not found. Custom php.ini not copied.'
+    exit 1
+fi

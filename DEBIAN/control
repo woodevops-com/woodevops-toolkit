@@ -7,3 +7,4 @@ Depends: nginx, mariadb-server, php8.1-fpm, php8.1-mysql, php8.1-gd, php8.1-curl
 Description: My custom package with dependencies
  This package is a meta-package that installs PHP, Nginx and MariaDB.
 Maintainer: Lívia Orsós <livia.orsos@codehsarp.hu>
+Pre-Install-Prefix: preinst
