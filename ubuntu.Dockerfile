@@ -4,7 +4,6 @@ ENV DEBIAN_FRONTEND noninteractive
 
 COPY DEBIAN package/DEBIAN
 COPY scripts scripts
-COPY package.deb package/package.deb
 
 RUN apt-get update && \
     apt-get install -y \
