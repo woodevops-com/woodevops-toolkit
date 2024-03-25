@@ -7,14 +7,14 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-23.10
+    runs-on: ubuntu-latest
 
     steps:
       - name: Checkout Repository
-        uses: actions/checkout@v2
+        uses: actions/checkout@v4
 
       - name: Set up Docker Buildx
-        uses: docker/setup-buildx-action@v1
+        uses: docker/setup-buildx-action@v3
 
       - name: Build Docker Image
         run: docker build -t create_package_image -f createPackage.Dockerfile .
@@ -31,7 +31,7 @@ jobs:
           mv ${{ github.workspace }}/*.deb ${{ github.workspace }}
 
       - name: Upload .deb Package
-        uses: actions/upload-artifact@v2
+        uses: actions/upload-artifact@v4
         with:
           name: deb-package
           path: ${{ github.workspace }}/*.deb
