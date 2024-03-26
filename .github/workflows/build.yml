@@ -21,10 +21,10 @@ jobs:
           ls -la ${{ github.workspace }}/custom_files
 
       - name: Create .deb File
-        run: dpkg-deb --build woodevops-toolkit.deb
+        run: dpkg-deb --build .
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: my-deb-file
-          path: ./woodevops-toolkit.deb
+          path: ./*.deb
