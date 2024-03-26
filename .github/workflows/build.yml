@@ -13,21 +13,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: List Files
+      - name: Extract version
+        id: get_version
         run: |
-          ls -la ${{ github.workspace }}
-          ls -la ${{ github.workspace }}/DEBIAN
-          ls -la ${{ github.workspace }}/scripts
-          ls -la ${{ github.workspace }}/custom_files
+          VERSION=$(grep -oP 'Version: \K.*' ${{ github.workspace }}/DEBIAN/control)
 
       - name: Create .deb File
         run: dpkg-deb --build .
-
-      - name: Upload Artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: my-deb-file
-          path: ./*.deb
 
       - name: Create Release
         id: create_release
@@ -35,18 +27,17 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          tag_name: ${{ github.sha }}
-          release_name: Release ${{ github.sha }}
+          tag_name: ${{ steps.get_version.outputs.VERSION }}
+          release_name: Release ${{ steps.get_version.outputs.VERSION }}
           draft: false
           prerelease: false
 
       - name: Upload Artifact to Release
-        id: upload-release-asset
         uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
           asset_path: ./*.deb
-          asset_name: my-deb-file.deb
+          asset_name: woodevops-toolkit.deb
           asset_content_type: application/x-deb
