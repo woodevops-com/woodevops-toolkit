@@ -20,24 +20,27 @@ jobs:
         run: docker build -t create_package_image -f createPackage.Dockerfile .
 
       - name: Run Docker Container
-        run: docker run create_package_image
+        run: docker run -d --name create_package_container create_package_image sleep infinity
 
       - name: Copy folders to Docker container
         run: |
-          docker cp DEBIAN create_package_image:/project
-          docker cp custom_files create_package_image:/project
-          docker cp scripts create_package_image:/project
+          docker cp DEBIAN create_package_container:/project
+          docker cp custom_files create_package_container:/project
+          docker cp scripts create_package_container:/project
 
       - name: Create .deb Package
         run: |
-          docker run -v ${{ github.workspace }}:/project create_package_image bash -c "cd /project && dpkg-deb --build package"
+          docker exec create_package_container bash -c "cd /project && dpkg-deb --build package"
 
       - name: Retrieve .deb Package
         run: |
-          mv ${{ github.workspace }}/*.deb ${{ github.workspace }}
+          docker cp create_package_container:/project/package.deb ${{ github.workspace }}
+
+      - name: Stop and remove Docker container
+        run: docker rm -f create_package_container
 
       - name: Upload .deb Package
         uses: actions/upload-artifact@v4
         with:
           name: deb-package
-          path: ${{ github.workspace }}/*.deb
+          path: ${{ github.workspace }}/package.deb
