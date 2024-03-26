@@ -20,7 +20,7 @@ jobs:
         run: docker build -t create_package_image -f createPackage.Dockerfile .
 
       - name: Run Docker Container
-        run: docker run -it create_package_image
+        run: docker run create_package_image
 
       - name: Create .deb Package
         run: |
