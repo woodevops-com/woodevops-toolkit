@@ -22,12 +22,12 @@ jobs:
           echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Create .deb File
-        run: dpkg-deb --build ./debs
+        run: dpkg-deb --build .
 
       - name: Check files
         run: |
           ls
-          ls debs
+          ls 
 
 
       - name: Create Release
@@ -47,6 +47,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./debs/*.deb
+          asset_path: ./*.deb
           asset_name: woodevops-toolkit
           asset_content_type: application/x-deb

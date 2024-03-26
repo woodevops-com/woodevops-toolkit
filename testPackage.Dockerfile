@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 ENV DEBIAN_FRONTEND noninteractive
 
-COPY package.deb /tmp/package.deb
+COPY ./test/package.deb /tmp/package.deb
 
 RUN apt-get update && \
     apt-get install -y /tmp/package.deb 
