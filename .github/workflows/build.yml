@@ -9,32 +9,24 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    steps:
+    steps:      
       - name: Checkout Repository
         uses: actions/checkout@v4
 
       - name: Build Docker Image
-        run: docker build -t create_package_image -f createPackage.Dockerfile .
+        run: docker build -t createpackage -f createPackage.Dockerfile .
 
-      - name: Run Docker Container
-        run: docker run -d --name create_package_container create_package_image sleep infinity
+      - name: Run Docker Image
+        run: docker run -v $(pwd)/../DEBUG:/app/DEBUG createpackage
 
-      - name: Copy folders to Docker container
-        run: |
-          docker cp DEBIAN create_package_container:/project
-          docker cp custom_files create_package_container:/project
-          docker cp scripts create_package_container:/project
+      - name: List files
+        run: ls -la $(pwd)/../DEBUG
 
-      - name: Create .deb Package
-        run: |
-          docker exec create_package_container bash -c "cd /project && dpkg-deb --build package"
+      - name: Create .deb file
+        run: dpkg-deb --build $(pwd)/../DEBUG $(pwd)/../
 
-      - name: Retrieve .deb Package
-        run: |
-          mv ${{ github.workspace }}/*.deb ${{ github.workspace }}
-
-      - name: Upload .deb Package
+      - name: Upload .deb file
         uses: actions/upload-artifact@v4
         with:
-          name: deb-package
-          path: ${{ github.workspace }}/*.deb
+          name: my-deb-file
+          path: $(pwd)/../
