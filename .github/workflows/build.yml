@@ -27,6 +27,7 @@ jobs:
       - name: Check files
         run: |
           ls
+          ls ..
 
 
       - name: Create Release
@@ -46,6 +47,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /*.deb
-          asset_name: woodevops-toolkit
+          asset_path: ./woodevops-toolkit.deb
+          asset_name: woodevops-toolkit.deb
           asset_content_type: application/x-deb
