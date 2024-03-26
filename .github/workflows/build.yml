@@ -22,6 +22,12 @@ jobs:
       - name: Run Docker Container
         run: docker run create_package_image
 
+      - name: Copy folders to Docker container
+        run: |
+          docker cp DEBIAN create_package_image:/project
+          docker cp custom_files create_package_image:/project
+          docker cp scripts create_package_image:/project
+
       - name: Create .deb Package
         run: |
           docker run -v ${{ github.workspace }}:/project create_package_image bash -c "cd /project && dpkg-deb --build package"
