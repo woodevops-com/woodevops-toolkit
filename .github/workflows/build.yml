@@ -16,7 +16,7 @@ jobs:
       - name: Extract version
         id: get_version
         run: |
-          VERSION=$(grep -oP 'Version: \K.*' /DEBIAN/control)
+          VERSION=$(grep -oP 'Version: \K.*' DEBIAN/control)
 
       - name: Create .deb File
         run: dpkg-deb --build .
