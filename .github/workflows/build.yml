@@ -27,7 +27,7 @@ jobs:
       - name: Check VERSION
         run: |
           ls
-          echo ${{ secrets.GITHUB_TOKEN }}
+          echo ${{ steps.get_version.outputs.VERSION }}
 
       - name: Create Release
         id: create_release
