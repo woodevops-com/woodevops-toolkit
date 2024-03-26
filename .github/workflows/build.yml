@@ -27,7 +27,6 @@ jobs:
           docker cp DEBIAN create_package_container:/project
           docker cp custom_files create_package_container:/project
           docker cp scripts create_package_container:/project
-          ls create_package_container:/project
 
       - name: Create .deb Package
         run: |
