@@ -28,7 +28,7 @@ jobs:
           ls -la ${{ github.workspace }}/custom_files
 
       - name: Create .deb File
-        run: dpkg-deb --build /
+        run: dpkg-deb --build .
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v2
