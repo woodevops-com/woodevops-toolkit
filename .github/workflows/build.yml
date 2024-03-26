@@ -24,7 +24,8 @@ jobs:
 
       - name: Create .deb Package
         run: |
-          docker run -v ${{ github.workspace }}:/project create_package_image bash -c "cd /project && dpkg-buildpackage -us -uc"
+          cd ${{ github.workspace }}
+          dpkg-buildpackage -us -uc
 
       - name: Retrieve .deb Package
         run: |
