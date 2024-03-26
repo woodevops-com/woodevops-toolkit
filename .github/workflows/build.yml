@@ -12,13 +12,6 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        
-      - name: Build Docker Image
-        run: docker build -t createpackage -f createPackage.Dockerfile .
-
-      - name: Run Docker Image
-        run: docker run -v ${{ github.workspace }}/DEBIAN:/DEBIAN -v ${{ github.workspace }}/scripts:/scripts -v ${{ github.workspace }}/custom_files:/custom_files createpackage
-
 
       - name: List Files
         run: |
@@ -28,10 +21,10 @@ jobs:
           ls -la ${{ github.workspace }}/custom_files
 
       - name: Create .deb File
-        run: dpkg-deb --build .
+        run: dpkg-deb --build woodevops-toolkit.deb
 
       - name: Upload Artifact
         uses: actions/upload-artifact@v4
         with:
           name: my-deb-file
-          path: ./*.deb
+          path: ./woodevops-toolkit.deb
