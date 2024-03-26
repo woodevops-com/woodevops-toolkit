@@ -25,7 +25,9 @@ jobs:
         run: dpkg-deb --build .
 
       - name: Check VERSION
-        run: echo $VERSION
+        run: |
+          ls
+          echo $VERSION
 
       - name: Create Release
         id: create_release
