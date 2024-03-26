@@ -19,7 +19,7 @@ jobs:
           ls
           cat DEBIAN/control
           export VERSION=$(grep -oP 'Version: \K.*' DEBIAN/control)
-          echo "VERSION=$VERSION" >> "$GITHUB_STATE"
+          echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Create .deb File
         run: dpkg-deb --build .
