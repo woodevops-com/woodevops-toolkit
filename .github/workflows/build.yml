@@ -17,16 +17,17 @@ jobs:
         run: docker build -t createpackage -f createPackage.Dockerfile .
 
       - name: Run Docker Image
-        run: docker run -v ${{ github.workspace }}:/host createpackage
+        run: docker run -v ${{ github.workspace }}/DEBIAN:/DEBIAN -v ${{ github.workspace }}/scripts:/scripts -v ${{ github.workspace }}/custom_files:/custom_files createpackage
+
 
       - name: List Files
-        run: ls -l /host
+        run: ls -la ${{ github.workspace }}/DEBIAN
 
       - name: Create .deb File
-        run: dpkg-deb --build /host/DEBIAN /host/DEBIAN.deb
+        run: dpkg-deb --build /DEBIAN
 
-      - name: Upload .deb file
-        uses: actions/upload-artifact@v4
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v2
         with:
           name: my-deb-file
-          path: /host/DEBIAN.deb
+          path: /DEBIAN/*.deb
