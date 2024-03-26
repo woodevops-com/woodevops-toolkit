@@ -24,11 +24,6 @@ jobs:
       - name: Create .deb File
         run: dpkg-deb --build .
 
-      - name: Check VERSION
-        run: |
-          ls
-          echo ${{ steps.get_version.outputs.VERSION }}
-
       - name: Create Release
         id: create_release
         uses: actions/create-release@v1
