@@ -19,6 +19,7 @@ jobs:
           ls
           cat DEBIAN/control
           VERSION=$(grep -oP 'Version: \K.*' DEBIAN/control)
+          echo $VERSION
 
       - name: Create .deb File
         run: dpkg-deb --build .
