@@ -1,8 +1,8 @@
 #!/bin/bash
 
-#mv /custom_files /etc/woodevops-toolkit/custom_files
-#mv /scripts /etc/woodevops-toolkit/scripts
-#mv -n /config.json /etc/woodevops-toolkit/config.json
+cp /custom_files /etc/woodevops-toolkit/custom_files
+cp /scripts /etc/woodevops-toolkit/scripts
+cp -n /config.json /etc/woodevops-toolkit/config.json
 
 ORIGINAL_PHP_INI='/etc/php/8.1/fpm/php.ini'
 CUSTOM_PHP_INI='custom_files/php.ini'
