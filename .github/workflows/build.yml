@@ -16,7 +16,7 @@ jobs:
       - name: Extract version
         id: get_version
         run: |
-          export VERSION=$(grep -oP 'Version: \K.*' DEBIAN/control)
+          export VERSION=$(grep -oP 'Version: \K.*' package/DEBIAN/control)
           echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Create .deb File
