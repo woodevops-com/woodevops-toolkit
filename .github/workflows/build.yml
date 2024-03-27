@@ -19,14 +19,12 @@ jobs:
           export VERSION=$(grep -oP 'Version: \K.*' DEBIAN/control)
           echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
 
-      - name: Download and set permissions for wp-cli
-        run: |
-          curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && \
-          chmod +x wp-cli.phar && \
-          mv wp-cli.phar /usr/local/bin/wp
-
       - name: Create .deb File
-        run: dpkg-deb --build ./package woodevops-toolkit.deb
+        run: |
+          curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar
+          chmod +x wp-cli.phar
+          mv wp-cli.phar /usr/local/bin/wp
+          dpkg-deb --build ./package woodevops-toolkit.deb
 
       - name: Create Release
         id: create_release
