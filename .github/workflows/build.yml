@@ -16,18 +16,11 @@ jobs:
       - name: Extract version
         id: get_version
         run: |
-          ls
-          cat DEBIAN/control
           export VERSION=$(grep -oP 'Version: \K.*' DEBIAN/control)
           echo "VERSION=$VERSION" >> "$GITHUB_OUTPUT"
 
       - name: Create .deb File
         run: dpkg-deb --build . woodevops-toolkit.deb
-
-      - name: Check files
-        run: |
-          ls -la
-
 
       - name: Create Release
         id: create_release
