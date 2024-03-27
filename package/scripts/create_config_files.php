@@ -1,5 +1,5 @@
 <?php
-$config = json_decode(file_get_contents('/config.json'), true);
+$config = json_decode(file_get_contents('/etc/woodevops-toolkit/config.json'), true);
 $pages = $config['pages'];
 
 foreach ($pages as $page) {

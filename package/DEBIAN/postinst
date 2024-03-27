@@ -1,11 +1,11 @@
 #!/bin/bash
 mkdir -p /etc/woodevops-toolkit
-cp -r /custom_files /etc/woodevops-toolkit/custom_files
-cp -r /scripts /etc/woodevops-toolkit/scripts
-cp -n /config.json /etc/woodevops-toolkit/config.json
+mv -r /custom_files /etc/woodevops-toolkit/custom_files
+mv -r /scripts /etc/woodevops-toolkit/scripts
+mv -n /config.json /etc/woodevops-toolkit/config.json
 
 ORIGINAL_PHP_INI='/etc/php/8.1/fpm/php.ini'
-CUSTOM_PHP_INI='custom_files/php.ini'
+CUSTOM_PHP_INI='/etc/woodevops-toolkit/custom_files/php.ini'
 
 if [ -f "$CUSTOM_PHP_INI" ]; then
     cp "$CUSTOM_PHP_INI" "$ORIGINAL_PHP_INI"
@@ -15,7 +15,7 @@ else
 fi
 
 ORIGINAL_NGINX_CONF='/etc/nginx/nginx.conf'
-CUSTOM_NGINX_CONF='custom_files/nginx.conf'
+CUSTOM_NGINX_CONF='/etc/woodevops-toolkit/custom_files/nginx.conf'
 
 if [ -f "$CUSTOM_NGINX_CONF" ]; then
     cp "$CUSTOM_NGINX_CONF" "$ORIGINAL_NGINX_CONF"
@@ -24,5 +24,5 @@ else
     echo 'Custom nginx.conf not found. Not copied.'
 fi
 
-php scripts/update_phpini.php
-php scripts/create_config_files.php
+php /etc/woodevops-toolkit/scripts/update_phpini.php
+php /etc/woodevops-toolkit/scripts/create_config_files.php

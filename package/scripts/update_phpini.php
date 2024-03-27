@@ -1,5 +1,5 @@
 <?php
-$config = json_decode(file_get_contents('/config.json'), true);
+$config = json_decode(file_get_contents('/etc/woodevops-toolkit/config.json'), true);
 $important_settings = $config['php'];
 
 $php_ini_path = '/etc/php/8.1/fpm/php.ini';
