@@ -1,7 +1,5 @@
 #!/bin/bash
-mkdir -p /etc/woodevops-toolkit \
-    /etc/woodevops-toolkit/scripts \
-    /etc/woodevops-toolkit/config.json
+mkdir -p /etc/woodevops-toolkit /etc/woodevops-toolkit/scripts /etc/woodevops-toolkit/custom_files
 mv -r /custom_files /etc/woodevops-toolkit/custom_files
 mv -r /scripts /etc/woodevops-toolkit/scripts
 mv -n /config.json /etc/woodevops-toolkit/config.json
