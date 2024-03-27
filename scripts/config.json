@@ -1,20 +1,15 @@
 {
   "pages": [
     {
-      "domain": "borsodklima.codesharp.dev",
-      "root": "/var/www/borsodklima",
-      "filename": "borsodklima"
-    },
-    {
-      "domain": "kistarcsaklima.codesharp.dev",
-      "root": "/var/www/kistarcsaklima",
-      "filename": "kistarcsaklima"
+      "domain": "test.codesharp.dev",
+      "root": "/var/www/test",
+      "filename": "test"
     }
   ],
   "php": {
     "memory_limit": -1,
     "max_execution_time": 30,
-    "upload_max_filesize": "20M",
+    "upload_max_filesize": "200M",
     "post_max_size": "8M",
     "error_reporting": 22527,
     "date.timezone": "Not defined",
