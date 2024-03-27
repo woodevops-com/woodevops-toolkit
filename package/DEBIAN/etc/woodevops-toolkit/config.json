@@ -1,10 +1,5 @@
 {
   "pages": [
-    {
-      "domain": "test.codesharp.dev",
-      "root": "/var/www/test",
-      "filename": "test"
-    }
   ],
   "php": {
     "memory_limit": -1,
