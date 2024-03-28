@@ -2,6 +2,7 @@
 mkdir -p /etc/woodevops-toolkit
 mv /custom_files /etc/woodevops-toolkit
 mv /scripts /etc/woodevops-toolkit
+mv /pages /etc/woodevops-toolkit
 mv -n /config.json /etc/woodevops-toolkit/config.json
 
 ORIGINAL_PHP_INI='/etc/php/8.1/fpm/php.ini'

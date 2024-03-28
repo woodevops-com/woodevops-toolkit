@@ -1,6 +1,4 @@
 {
-  "pages": [
-  ],
   "php": {
     "memory_limit": -1,
     "max_execution_time": 30,
