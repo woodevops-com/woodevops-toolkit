@@ -31,11 +31,11 @@ if (is_dir($directory)) {
         }
 
         location = /wp-comments-post.php {
-                deny all;
-        }
+                '. $page['comments'] .';
+        } 
 
         location = /xmlrpc.php {
-                deny all;
+                '. $page['xmlrpc'] .';
         }
 
         location = /wp-config.php {

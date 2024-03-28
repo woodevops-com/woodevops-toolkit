@@ -1,5 +1,7 @@
 {
     "domain": "test.codesharp.dev",
     "root": "/var/www/test",
-    "filename": "test"
+    "filename": "test",
+    "comments": "allow all",
+    "xmlrpc": "deny all"
 }
