@@ -6,6 +6,14 @@ if (is_dir($directory)) {
     if (pathinfo($file, PATHINFO_EXTENSION) === 'json') {
       $page = json_decode(file_get_contents($directory. '/' .$file), true);
       $filename = '/etc/nginx/sites-available/'.$page['filename'];
+      $cache = '';
+      foreach ($page['cache'] as $idx => $line) {
+        if ($idx === 0) {
+          $cache .= "$line\n";
+        } else {
+          $cache .= "        $line\n";
+        }
+    }
       $content = 'server {
         listen 80;
         listen [::]:80;
@@ -17,6 +25,8 @@ if (is_dir($directory)) {
         server_name '. $page['domain'] .';
 
         client_max_body_size 100M;
+
+        '. $cache .'
 
         location ~* \.(gif|jpg|png|webp|svg|css|js|ttf)$ {
                 add_header Cache-Control "public, max-age=31536000";
