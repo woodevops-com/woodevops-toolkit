@@ -1,6 +1,6 @@
 <?php
 $directory = '/etc/woodevops-toolkit/pages';
-
+/*
 if (is_dir($directory)) {
   $files = scandir($directory);
 
@@ -70,3 +70,4 @@ if (is_dir($directory)) {
     }
   }
 }
+*/

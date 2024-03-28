@@ -26,4 +26,4 @@ else
 fi
 
 php /etc/woodevops-toolkit/scripts/update_phpini.php
-#php /etc/woodevops-toolkit/scripts/create_nginx_config_files.php
+php /etc/woodevops-toolkit/scripts/create_nginx_config_files.php
