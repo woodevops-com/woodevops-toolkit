@@ -27,8 +27,24 @@ foreach ($pages as $page) {
             fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
             fastcgi_read_timeout 300s;
     }
-    
-    location /wp-comments-post.php {
+
+    location = /wp-comments-post.php {
+            deny all;
+    }
+
+    location = /xmlrpc.php {
+            deny all;
+    }
+
+    location = /wp-config.php {
+            deny all;
+    }
+
+    location = /wp-config-sample.php {
+            deny all;
+    }
+
+    location = /wp-cron.php {
             deny all;
     }
 
