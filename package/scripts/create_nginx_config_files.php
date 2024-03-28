@@ -3,7 +3,8 @@ $directory = '/etc/woodevops-toolkit/pages';
 if (is_dir($directory)) {
   $files = array_diff(scandir($directory), array('..', '.'));
   foreach ($files as $file) {
-    if (pathinfo($file, PATHINFO_EXTENSION) === 'json') {
+    var_dump($file);
+    /*if (pathinfo($file, PATHINFO_EXTENSION) === 'json') {
       $page = json_decode(file_get_contents(file), true);
       $filename = '/etc/nginx/sites-available/'.$page['filename'];
       $content = 'server {
@@ -67,6 +68,6 @@ if (is_dir($directory)) {
       } else {
           echo 'Error creating: ' . $page['filename'] . "\n";
       }
-    }
+    }*/
   }
 }
