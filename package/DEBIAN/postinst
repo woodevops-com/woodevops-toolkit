@@ -36,6 +36,3 @@ fi
 
 php /etc/woodevops-toolkit/scripts/update_phpini.php
 php /etc/woodevops-toolkit/scripts/create_nginx_config_files.php
-
-sudo certbot --nginx -n -d borsodklima.codesharp.dev --agree-tos --email gabor.angyal@codesharp.dev
-sudo systemctl restart nginx.service

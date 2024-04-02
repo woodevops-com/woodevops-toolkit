@@ -87,4 +87,13 @@ if (is_dir($directory)) {
       }
     }
   }
+  $certbot_command = "sudo certbot --nginx -n -d $domain --agree-tos --email gabor.angyal@codesharp.dev";
+  echo "Executing Certbot command: $certbot_command\n";
+  $output = shell_exec($certbot_command);
+  echo "Certbot output: $output\n";
 }
+
+$nginx_restart_command = "sudo systemctl restart nginx.service";
+echo "Restarting Nginx server...\n";
+$output = shell_exec($nginx_restart_command);
+echo "Nginx restart output: $output\n";
