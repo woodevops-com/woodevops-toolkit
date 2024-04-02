@@ -6,10 +6,10 @@ if (is_dir($directory)) {
     if (pathinfo($file, PATHINFO_EXTENSION) === 'json') {
       $page = json_decode(file_get_contents($directory. '/' .$file), true);
       $filename = '/etc/nginx/sites-available/'.$page['filename'];
-      $block_comments = 'deny-all';
-      $block_xmlrpc = 'deny-all';
-      if ($page['block-comments']) $block_comments = 'allow-all';
-      if ($page['block-xmlrpc']) $block_xmlrpc = 'allow-all';
+      $block_comments = 'deny all';
+      $block_xmlrpc = 'deny all';
+      if ($page['block-comments']) $block_comments = 'allow all';
+      if ($page['block-xmlrpc']) $block_xmlrpc = 'allow all';
       $cache = '';
       foreach ($page['cache'] as $idx => $line) {
         $cache .= "$line\n";
