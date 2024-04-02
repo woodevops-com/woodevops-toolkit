@@ -12,14 +12,14 @@ if (is_dir($directory)) {
       if ($page['block-xmlrpc']) $block_xmlrpc = 'allow-all';
       $cache = '';
       foreach ($page['cache'] as $idx => $line) {
-        if ($idx === 0) {
-          $cache .= "$line\n";
-        } else {
-          $cache .= "        $line\n";
-        }
+        $cache .= "$line\n";
+      }
       $domain = implode(', ', $page['domain']);
-    }
-      $content = 'server {
+      
+      $content = '
+      '. $cache .'
+      
+      server {
         listen 80;
         listen [::]:80;
         
@@ -33,8 +33,6 @@ if (is_dir($directory)) {
 
         access_log /var/log/nginx/'. $page['filename'] .'_access.log;
         error_log /var/log/nginx/'. $page['filename'] .'_error.log;
-
-        '. $cache .'
 
         location ~* \.(gif|jpg|png|webp|svg|css|js|ttf)$ {
                 add_header Cache-Control "public, max-age=31536000";
