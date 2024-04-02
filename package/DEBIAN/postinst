@@ -1,6 +1,15 @@
 #!/bin/bash
 mkdir -p /etc/woodevops-toolkit
-mv /custom_files /etc/woodevops-toolkit
+
+if [ -d "/etc/woodevops-toolkit/custom_files" ]; then 
+    mv -n /custom_files/* /etc/woodevops-toolkit/custom_files
+else
+    mv /custom_files /etc/woodevops-toolkit
+fi
+
+if [ -d "/etc/woodevops-toolkit/scripts" ]; then rm -Rf /etc/woodevops-toolkit/scripts; fi
+if [ -d "/etc/woodevops-toolkit/pages" ]; then rm -Rf /etc/woodevops-toolkit/pages; fi
+
 mv /scripts /etc/woodevops-toolkit
 mv /pages /etc/woodevops-toolkit
 mv -n /config.json /etc/woodevops-toolkit/config.json
