@@ -31,6 +31,9 @@ if (is_dir($directory)) {
 
         client_max_body_size 100M;
 
+        access_log /var/log/nginx/'. $page['filename'] .'_access.log;
+        error_log /var/log/nginx/'. $page['filename'] .'_error.log;
+
         '. $cache .'
 
         location ~* \.(gif|jpg|png|webp|svg|css|js|ttf)$ {

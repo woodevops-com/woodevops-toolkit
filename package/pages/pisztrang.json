@@ -1,10 +1,10 @@
 {
     "domain": [
-        "test2.codesharp.dev"
+        "pisztrang.com"
     ],
-    "root": "/var/www/test2",
-    "filename": "test2",
-    "block-comments": true,
+    "root": "/var/www/pisztrang",
+    "filename": "pisztrang",
+    "block-comments": false,
     "block-xmlrpc": false,
     "cache": [
         "fastcgi_cache_path /usr/share/nginx/fastcgi_cache levels=1:2 keys_zone=WORDPRESS:100m max_size=10g inactive=10m use_temp_path=off;",

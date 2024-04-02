@@ -1,15 +1,10 @@
 {
     "domain": [
-        "codesharp.dev",
-        "codesharp.hu",
-        "codesharp.eu",
-        "wwww.codesharp.dev",
-        "wwww.codesharp.hu",
-        "wwww.codesharp.eu"
+        "domolyko.com"
     ],
-    "root": "/var/www/test",
-    "filename": "test",
-    "block-comments": true,
+    "root": "/var/www/domolyko",
+    "filename": "domolyko",
+    "block-comments": false,
     "block-xmlrpc": false,
     "cache": [
         "fastcgi_cache_path /usr/share/nginx/fastcgi_cache levels=1:2 keys_zone=WORDPRESS:100m max_size=10g inactive=10m use_temp_path=off;",
