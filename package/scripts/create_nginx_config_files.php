@@ -86,5 +86,9 @@ if (is_dir($directory)) {
           echo 'Error creating: ' . $page['filename'] . "\n";
       }
     }
+
+    echo 'sudo certbot --nginx -n -d borsodklima.codesharp.dev --agree-tos --email gabor.angyal@codesharp.dev';
+
+    echo 'sudo systemctl restart nginx.service';
   }
 }
