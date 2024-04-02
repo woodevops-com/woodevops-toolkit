@@ -17,6 +17,7 @@ if (is_dir($directory)) {
         } else {
           $cache .= "        $line\n";
         }
+      $domain = implode(', ', $page['domain']);
     }
       $content = 'server {
         listen 80;
@@ -26,7 +27,7 @@ if (is_dir($directory)) {
 
         index index.php;
 
-        server_name '. $page['domain'] .';
+        server_name '. $domain .';
 
         client_max_body_size 100M;
 
