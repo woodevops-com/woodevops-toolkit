@@ -7,7 +7,7 @@
     "block-comments": false,
     "block-xmlrpc": false,
     "cache": [
-        "fastcgi_cache_path /usr/share/nginx/fastcgi_cache/domolyko levels=1:2 keys_zone=WORDPRESS:100m max_size=10g inactive=10m use_temp_path=off;",
+        "fastcgi_cache_path /usr/share/nginx/fastcgi_cache/domolyko levels=1:2 keys_zone=domolyko:100m max_size=10g inactive=10m use_temp_path=off;",
         "fastcgi_cache_key \"$scheme$request_method$host$request_uri$cookie_wcml_client_currency\";",
         "fastcgi_ignore_headers Cache-Control Expires Set-Cookie ;"
     ]
