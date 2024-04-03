@@ -15,12 +15,13 @@ if (is_dir($directory)) {
         if ($idx === 0) {
           $cache .= "$line\n";
         } else {
-          $cache .= "        $line\n";
+          $cache .= "$line\n";
         }
       }
       $domain = implode(', ', $page['domain']);
       
-      $content = 'server {
+      $content = $cache .'
+      server {
         listen 80;
         listen [::]:80;
         
