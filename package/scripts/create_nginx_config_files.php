@@ -5,7 +5,7 @@ if (is_dir($directory)) {
   foreach ($files as $file) {
     if (pathinfo($file, PATHINFO_EXTENSION) === 'json') {
       $page = json_decode(file_get_contents($directory. '/' .$file), true);
-      echo 'sudo rm /etc/nginx/sites-enabled/'.$page['filename'];;
+      echo 'sudo rm /etc/nginx/sites-enabled/'.$page['filename'];
       $filename = '/etc/nginx/sites-available/'.$page['filename'];
       $block_comments = 'deny all';
       $block_xmlrpc = 'deny all';
