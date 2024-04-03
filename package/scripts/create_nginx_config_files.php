@@ -35,8 +35,6 @@ if (is_dir($directory)) {
         access_log /var/log/nginx/'. $page['filename'] .'_access.log;
         error_log /var/log/nginx/'. $page['filename'] .'_error.log;
 
-        '. $cache .'
-
         location ~* \.(gif|jpg|png|webp|svg|css|js|ttf)$ {
                 add_header Cache-Control "public, max-age=31536000";
                 try_files $uri $uri/ =404;
