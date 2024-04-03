@@ -7,4 +7,4 @@ COPY ./test/package.deb /tmp/package.deb
 RUN apt-get update && \
     apt-get install -y /tmp/package.deb 
 
-CMD service nginx start && service php8.1-fpm start && service mariadb start && wp --info && tail -f /dev/null
+CMD service nginx start && service php8.1-fpm start && service mariadb start && tail -f /dev/null
