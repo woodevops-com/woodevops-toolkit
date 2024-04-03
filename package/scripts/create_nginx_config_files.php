@@ -21,8 +21,9 @@ if (is_dir($directory)) {
       }
       $domain = implode(', ', $page['domain']);
       
-      $content = $cache .'
+      $content = '
       server {
+        '. $cache .'
         listen 80;
         listen [::]:80;
         
@@ -93,3 +94,4 @@ if (is_dir($directory)) {
   $output = shell_exec($certbot_command);
   echo "Certbot output: $output\n";
 }
+
