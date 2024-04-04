@@ -23,7 +23,6 @@ if (is_dir($directory)) {
       
       $content = '
       server {
-        '. $cache .'
         listen 80;
         listen [::]:80;
         
