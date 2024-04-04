@@ -2,6 +2,7 @@
 $directory = '/etc/woodevops-toolkit/pages';
 if (is_dir($directory)) {
   $files = array_diff(scandir($directory), array('..', '.'));
+  $domain = implode(', ', $page['domain']);
   foreach ($files as $file) {
     if (pathinfo($file, PATHINFO_EXTENSION) === 'json') {
       $page = json_decode(file_get_contents($directory. '/' .$file), true);
@@ -19,7 +20,6 @@ if (is_dir($directory)) {
           $cache .= "$line\n";
         }
       }
-      $domain = implode(', ', $page['domain']);
       
       $content = '
       server {
