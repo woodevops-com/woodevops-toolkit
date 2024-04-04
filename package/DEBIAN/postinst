@@ -34,7 +34,5 @@ else
     echo 'Custom nginx.conf not found. Not copied.'
 fi
 
-php /etc/woodevops-toolkit/scripts/update_phpini.php
-php /etc/woodevops-toolkit/scripts/create_nginx_config_files.php
-
-sudo systemctl restart nginx.service
+sudo php /etc/woodevops-toolkit/scripts/update_phpini.php
+sudo php /etc/woodevops-toolkit/scripts/create_nginx_config_files.php
