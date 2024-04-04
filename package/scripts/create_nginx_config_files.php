@@ -2,10 +2,10 @@
 $directory = '/etc/woodevops-toolkit/pages';
 if (is_dir($directory)) {
   $files = array_diff(scandir($directory), array('..', '.'));
-  $domain = implode(', ', $page['domain']);
   foreach ($files as $file) {
     if (pathinfo($file, PATHINFO_EXTENSION) === 'json') {
       $page = json_decode(file_get_contents($directory. '/' .$file), true);
+      $domain = implode(', ', $page['domain']);
       echo 'sudo rm /etc/nginx/sites-enabled/'.$page['filename'];
       $filename = '/etc/nginx/sites-available/'.$page['filename'];
       $block_comments = 'deny all';
