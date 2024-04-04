@@ -88,9 +88,9 @@ if (is_dir($directory)) {
       }
     }
   }
-  $certbot_command = "sudo certbot --nginx -n -d $domain --agree-tos --email gabor.angyal@codesharp.dev";
+  /*$certbot_command = "sudo certbot --nginx -n -d $domain --agree-tos --email gabor.angyal@codesharp.dev";
   echo "Executing Certbot command: $certbot_command\n";
   $output = shell_exec($certbot_command);
-  echo "Certbot output: $output\n";
+  echo "Certbot output: $output\n";*/
 }
 
