@@ -37,7 +37,4 @@ fi
 php /etc/woodevops-toolkit/scripts/update_phpini.php
 php /etc/woodevops-toolkit/scripts/create_nginx_config_files.php
 
-$nginx_restart_command = "sudo systemctl restart nginx.service";
-echo "Restarting Nginx server...\n";
-$output = shell_exec($nginx_restart_command);
-echo "Nginx restart output: $output\n";
+sudo systemctl restart nginx.service
