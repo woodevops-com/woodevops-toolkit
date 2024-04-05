@@ -14,15 +14,15 @@ mv -n /config.json /etc/woodevops-toolkit/config.json
 #    echo 'Custom php.ini not found. Not copied.'
 #fi
 
-#ORIGINAL_NGINX_CONF='/etc/nginx/nginx.conf'
-#CUSTOM_NGINX_CONF='/etc/woodevops-toolkit/custom_files/nginx.conf'
+ORIGINAL_NGINX_CONF='/etc/nginx/nginx.conf'
+CUSTOM_NGINX_CONF='/etc/woodevops-toolkit/custom_files/nginx.conf'
 
-#if [ -f "$CUSTOM_NGINX_CONF" ]; then
-#    sudo cp -f "$ORIGINAL_NGINX_CONF" "$CUSTOM_NGINX_CONF"
-#    echo 'Custom nginx.conf copied successfully.'
-#else
-#    echo 'Custom nginx.conf not found. Not copied.'
-#fi
+if [ -f "$CUSTOM_NGINX_CONF" ]; then
+    sudo cp -f $ORIGINAL_NGINX_CONF $CUSTOM_NGINX_CONF
+    echo 'Custom nginx.conf copied successfully.'
+else
+    echo 'Custom nginx.conf not found. Not copied.'
+fi
 
 sudo php /etc/woodevops-toolkit/scripts/update_phpini.php
 sudo php /etc/woodevops-toolkit/scripts/create_nginx_config_files.php
