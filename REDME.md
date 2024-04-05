@@ -16,8 +16,8 @@
   dpkg-deb --build package
   ```
 ### Update the php.ini file
-- Change the values in important_settings array (in scripts/update_phpini.php file)
+- Change the values in important_settings array (in scripts/update_php_ini.php file)
 - In the Terminal navigate to scripts folder and run the script
   ```bash
-  php update_phpini.php
+  php update_php_ini.php
   ```

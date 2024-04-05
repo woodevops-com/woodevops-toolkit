@@ -10,5 +10,8 @@
     "upload_tmp_dir": "Not defined",
     "session.gc_maxlifetime": 1440,
     "new_important_php_setting": 3
+  },
+  "journald": {
+    "SystemMaxUse": "100M"
   }
 }
