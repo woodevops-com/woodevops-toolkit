@@ -1,4 +1,5 @@
 <?php
+shell_exec("sudo chmod o+w /etc/systemd/journald.conf");
 $config = json_decode(file_get_contents('/etc/woodevops-toolkit/config.json'), true);
 $important_settings = $config['journald'];
 
@@ -20,7 +21,7 @@ if ($journald_conf) {
       }
       $journald_conf = preg_replace('/#?'.$setting.'\s*=.*+\n/', $setting.' = '.$value."\n", $journald_conf);      
     }
-        
+
     file_put_contents($journald_conf_path, $journald_conf);
     echo 'journald.conf file updated' . "\n";
 } else {
