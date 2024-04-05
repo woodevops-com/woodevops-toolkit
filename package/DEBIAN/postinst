@@ -1,6 +1,7 @@
 #!/bin/bash
 sudo systemctl stop nginx
 sudo systemctl stop php8.1-fpm
+sudo systemctl stop systemd-journald
 
 mv -n /config.json /etc/woodevops-toolkit/config.json
 
@@ -15,7 +16,9 @@ CUSTOM_NGINX_CONF='/etc/woodevops-toolkit/custom_files/nginx.conf'
 sudo cp -f $CUSTOM_NGINX_CONF $ORIGINAL_NGINX_CONF
 
 sudo php /etc/woodevops-toolkit/scripts/update_php_ini.php
+sudo php /etc/woodevops-toolkit/scripts/update_journald_conf.php
 sudo php /etc/woodevops-toolkit/scripts/create_nginx_config_files.php
 
 sudo systemctl start nginx
 sudo systemctl start php8.1-fpm
+sudo systemctl start systemd-journald
