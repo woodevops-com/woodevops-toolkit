@@ -1,6 +1,6 @@
 #!/bin/bash
-#sudo systemctl stop nginx
-#sudo systemctl stop php8.1-fpm
+sudo systemctl stop nginx
+sudo systemctl stop php8.1-fpm
 
 mv -n /config.json /etc/woodevops-toolkit/config.json
 
@@ -17,5 +17,5 @@ sudo cp -f $CUSTOM_NGINX_CONF $ORIGINAL_NGINX_CONF
 sudo php /etc/woodevops-toolkit/scripts/update_phpini.php
 sudo php /etc/woodevops-toolkit/scripts/create_nginx_config_files.php
 
-#sudo systemctl start nginx
-#sudo systemctl start php8.1-fpm
+sudo systemctl start nginx
+sudo systemctl start php8.1-fpm
