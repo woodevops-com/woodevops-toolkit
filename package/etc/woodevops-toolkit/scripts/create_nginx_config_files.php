@@ -7,13 +7,18 @@ if (empty($arg)) {
   exit;
 }
 
+$files = array_diff(scandir('/etc/woodevops-toolkit/pages/'), array('..', '.'));
+
 if ($arg == 'all') {
-  $files = array_diff(scandir('/etc/woodevops-toolkit/pages/'), array('..', '.'));
   foreach ($files as $file) {
     createNginxFile($file);
   }
 } else {
-
+  if ($files[$arg]) {
+    createNginxFile($files[$arg]);
+  } else {
+    echo 'File not found' . "\n";
+  }
 }
 
 function createNginxFile($file) {
@@ -97,9 +102,9 @@ function createNginxFile($file) {
     }';
 
     if (file_put_contents($filePath, $content) !== false) {
-        echo 'File created: ' . $filename . "\n";
+        echo '\nFile created: ' . $filename . "\n";
     } else {
-        echo 'Error creating: ' . $filename . "\n";
+        echo '\nError creating: ' . $filename . "\n";
     }
   }
 }
