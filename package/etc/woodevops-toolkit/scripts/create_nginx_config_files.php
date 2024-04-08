@@ -15,7 +15,7 @@ if ($arg == 'all') {
   }
 } else {
   if (in_array($arg, $files)) {
-    createNginxFile($files[$arg]);
+    createNginxFile($arg);
   } else {
     echo 'File not found' . "\n";
   }
