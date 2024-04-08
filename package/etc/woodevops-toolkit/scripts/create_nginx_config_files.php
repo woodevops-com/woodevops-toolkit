@@ -14,7 +14,7 @@ if ($arg == 'all') {
     createNginxFile($file);
   }
 } else {
-  if ($files[$arg]) {
+  if (in_array($arg, $files)) {
     createNginxFile($files[$arg]);
   } else {
     echo 'File not found' . "\n";
@@ -102,9 +102,9 @@ function createNginxFile($file) {
     }';
 
     if (file_put_contents($filePath, $content) !== false) {
-        echo '\nFile created: ' . $filename . "\n";
+        echo PHP_EOL . 'File created: ' . $filename . "\n";
     } else {
-        echo '\nError creating: ' . $filename . "\n";
+        echo PHP_EOL . 'Error creating: ' . $filename . "\n";
     }
   }
 }

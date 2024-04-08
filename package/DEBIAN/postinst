@@ -17,7 +17,7 @@ cp -f $CUSTOM_NGINX_CONF $ORIGINAL_NGINX_CONF
 
 php /etc/woodevops-toolkit/scripts/update_php_ini.php
 php /etc/woodevops-toolkit/scripts/update_journald_conf.php
-php /etc/woodevops-toolkit/scripts/create_nginx_config_files.php 'all'
+php /etc/woodevops-toolkit/scripts/create_nginx_config_files.php all
 
 systemctl enable nginx
 systemctl start nginx
