@@ -1,3 +1,4 @@
+#!/usr/bin/env php
 <?php
 shell_exec("sudo chmod o+w /etc/systemd/journald.conf");
 $config = json_decode(file_get_contents('/etc/woodevops-toolkit/config.json'), true);
