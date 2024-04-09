@@ -15,6 +15,8 @@ CUSTOM_NGINX_CONF='/etc/woodevops-toolkit/custom_files/nginx.conf'
 
 cp -f $CUSTOM_NGINX_CONF $ORIGINAL_NGINX_CONF
 
+cp -f /etc/woodevops-toolkit/scripts/create_nginx_config_files /usr/local/bin/create_nginx_config_files
+
 php /etc/woodevops-toolkit/scripts/update_php_ini
 php /etc/woodevops-toolkit/scripts/update_journald_conf
 php /etc/woodevops-toolkit/scripts/create_nginx_config_files all
