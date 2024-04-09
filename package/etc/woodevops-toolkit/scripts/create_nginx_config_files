@@ -33,14 +33,6 @@ function createNginxFile($file) {
     $block_xmlrpc = 'deny all';
     if ($page['block-comments']) $block_comments = 'allow all';
     if ($page['block-xmlrpc']) $block_xmlrpc = 'allow all';
-    $cache = '';
-    foreach ($page['cache'] as $idx => $line) {
-      if ($idx === 0) {
-        $cache .= "$line\n";
-      } else {
-        $cache .= "$line\n";
-      }
-    }
     
     $content = '
     server {
