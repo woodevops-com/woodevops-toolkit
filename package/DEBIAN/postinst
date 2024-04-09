@@ -5,16 +5,6 @@ systemctl stop systemd-journald
 
 mv -n /config.json /etc/woodevops-toolkit/config.json
 
-ORIGINAL_PHP_INI='/etc/php/8.1/fpm/php.ini'
-CUSTOM_PHP_INI='/etc/woodevops-toolkit/custom_files/php.ini'
-
-cp -f $CUSTOM_PHP_INI $ORIGINAL_PHP_INI
-
-ORIGINAL_NGINX_CONF='/etc/nginx/nginx.conf'
-CUSTOM_NGINX_CONF='/etc/woodevops-toolkit/custom_files/nginx.conf'
-
-cp -f $CUSTOM_NGINX_CONF $ORIGINAL_NGINX_CONF
-
 php /etc/woodevops-toolkit/scripts/update_php_ini
 php /etc/woodevops-toolkit/scripts/update_journald_conf
 php create_nginx_config_files all
